@@ -25,7 +25,7 @@ const Layout = ({ children }: Props) => {
           </Bubble>
           <Icon
             onClick={() => setCartShowing(true)}
-            src="src/assets/shopping-cart.png"
+            src="./shopping-cart.png"
           />
         </div>
       </Header>
