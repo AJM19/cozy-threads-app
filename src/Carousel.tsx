@@ -86,6 +86,10 @@ const CarouselContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
+
+  @media (max-width: 900px) {
+    overflow: auto;
+  }
 `;
 
 const CarouselWrapper = styled.div`
@@ -93,6 +97,10 @@ const CarouselWrapper = styled.div`
   transition: transform 0.3s ease-in-out;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const ProductTile = styled.div`

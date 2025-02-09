@@ -141,6 +141,10 @@ const BannerActions = styled.div`
     &:disabled {
       opacity: 0.5;
     }
+
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
 
   p {
