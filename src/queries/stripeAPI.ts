@@ -4,7 +4,8 @@ import { Product } from "../Carousel";
 export const stripeAPI = createApi({
   reducerPath: "stripeAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://cozy-threads-stripe-api.onrender.com/cozy-threads/",
+    baseUrl:
+      "https://cozy-threads-stripe-api-production.up.railway.app/cozy-threads/",
   }),
   endpoints: (builder) => ({
     getCustomers: builder.query<any, void>({
