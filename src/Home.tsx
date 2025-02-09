@@ -55,7 +55,10 @@ const Home = () => {
                 />
               </button>
 
-              <button onClick={() => setIndex(index + 1)}>
+              <button
+                disabled={index === 4}
+                onClick={() => setIndex(index + 1)}
+              >
                 <img src="./arrow.png" />
               </button>
             </div>
@@ -77,7 +80,10 @@ const Home = () => {
               <img style={{ transform: "rotateY(180deg)" }} src="./arrow.png" />
             </button>
 
-            <button onClick={() => setIndex2(index2 + 1)}>
+            <button
+              disabled={index2 === 4}
+              onClick={() => setIndex2(index2 + 1)}
+            >
               <img src="./arrow.png" />
             </button>
           </div>
