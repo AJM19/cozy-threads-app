@@ -31,12 +31,7 @@ const Home = () => {
   };
 
   if (isLoading) {
-    return (
-      <p>
-        Please wait for API server to boot up. This process can take up to 1
-        minute so please sit tight.
-      </p>
-    );
+    return <p>Loading...</p>;
   }
 
   if (!products) {

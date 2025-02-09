@@ -133,6 +133,10 @@ const StyledContainer = styled.div<{ isOpen: boolean }>`
   padding: 10px;
   z-index: 500;
   transition: right 0.5s ease;
+
+  @media (max-width: 900px) {
+    width: 75%;
+  }
 `;
 
 const CartContainer = styled.div`
