@@ -88,6 +88,7 @@ const Bubble = styled.div`
   height: 15px;
   border-radius: 50%;
   background: ${MAIN_COLORS.yellow};
+  z-index: 50;
 
   position: absolute;
   top: -5px;
