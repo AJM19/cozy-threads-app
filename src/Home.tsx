@@ -92,7 +92,7 @@ const Home = () => {
           <Carousel
             index={index2}
             setIndex={setIndex2}
-            items={products}
+            items={[...products].reverse()}
             itemsPerPage={4}
           />
         </Banner>
