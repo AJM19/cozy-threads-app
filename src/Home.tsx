@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Layout from "./Layout";
+import Layout, { Title } from "./Layout";
 import { useGetProdcutsQuery } from "./queries/stripeAPI";
 import Carousel from "./Carousel";
 import { useEffect, useState } from "react";
@@ -41,6 +41,12 @@ const Home = () => {
   return (
     <Layout>
       <div style={{ padding: "10px 0" }}>
+        <Intro>
+          <img src="./bonfire.jpg" />
+          <div className="intro">
+            <p>stay cozy.</p>
+          </div>
+        </Intro>
         <Banner>
           <BannerActions>
             <p>new items.</p>
@@ -153,5 +159,44 @@ const BannerActions = styled.div`
     font-weight: 600;
 
     color: ${MAIN_COLORS.yellow};
+  }
+`;
+
+const Intro = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 5px;
+
+  overflow: hidden;
+
+  height: 200px;
+  width: 100%;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .intro {
+    position: relative;
+    padding: 10px 5px;
+    background: ${MAIN_COLORS.orange};
+
+    p {
+      line-height: 100%;
+      color: white;
+      font-size: 20pt;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    label {
+      font-size: 12pt;
+      color: black;
+    }
   }
 `;
