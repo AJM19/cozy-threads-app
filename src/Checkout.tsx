@@ -39,7 +39,7 @@ const Checkout = () => {
 
   return (
     <Layout>
-      <div>
+      <div style={{ width: "100%" }}>
         <Logo src="./logo.png" />
         <p style={{ padding: "10px 20px", fontSize: "18pt" }}>
           amount: <b>${amount}</b>

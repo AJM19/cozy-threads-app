@@ -133,7 +133,7 @@ const StyledContainer = styled.div<{ isOpen: boolean }>`
   background: rgba(0, 0, 0, 0.3);
   background: #ffffff;
   box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 0 0 5px;
   box-sizing: border-box;
   padding: 10px;
   z-index: 500;
