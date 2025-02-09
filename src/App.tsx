@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./Home";
 import Checkout from "./Checkout";
-import CartPreview from "./CartPreview";
 import "./App.css";
 
 function App() {
@@ -25,14 +24,6 @@ function App() {
             element={
               <PageWrapper>
                 <Checkout />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <PageWrapper>
-                <CartPreview />
               </PageWrapper>
             }
           />

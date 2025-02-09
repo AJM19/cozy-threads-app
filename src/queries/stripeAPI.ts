@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Product } from "../Carousel";
 
 export const stripeAPI = createApi({
   reducerPath: "stripeAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://cozy-threads-stripe-api.onrender.com/cozy-threads/",
+    baseUrl: "http://localhost:3000/cozy-threads", //https://cozy-threads-stripe-api.onrender.com/cozy-threads/
   }),
   endpoints: (builder) => ({
     getCustomers: builder.query<any, void>({
@@ -18,11 +19,17 @@ export const stripeAPI = createApi({
         method: "GET",
       }),
     }),
-    createPaymentIntent: builder.query<any, { items: { id: number }[] }>({
+    createPaymentIntent: builder.query<any, { items: Product[] }>({
       query: ({ items }) => ({
         url: `/create-payment-intent`,
         method: "POST",
-        body: { products: items.map((item) => item.id) },
+        body: {
+          total: items.reduce((acc: number, item: Product) => {
+            acc += item.default_price.unit_amount;
+
+            return acc;
+          }, 0),
+        },
       }),
     }),
   }),

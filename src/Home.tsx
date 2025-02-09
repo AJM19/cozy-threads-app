@@ -2,17 +2,43 @@ import styled from "styled-components";
 import Layout from "./Layout";
 import { useGetCustomersQuery, useGetProdcutsQuery } from "./queries/stripeAPI";
 import Carousel from "./Carousel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MAIN_COLORS } from "./colors";
+import ConfirmationPopup from "./ConfirmationPopup";
+import useQuery from "./useQuery";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const { data: customers } = useGetCustomersQuery();
-  const { data: products } = useGetProdcutsQuery();
+  const query = useQuery();
+  const navigate = useNavigate();
+  const { data: customers, isLoading } = useGetCustomersQuery();
+  const { data: products, isLoading: isProductLoading } = useGetProdcutsQuery();
+
   const [index, setIndex] = useState(0);
   const [index2, setIndex2] = useState(0);
+  const [isConfirmShowing, setConfirmShowing] = useState(false);
 
-  console.log("customers: ", customers);
-  console.log("products: ", products);
+  const redirect_status = query.get("redirect_status");
+
+  useEffect(() => {
+    if (redirect_status === "succeeded") {
+      setConfirmShowing(true);
+    }
+  }, [redirect_status]);
+
+  const clearConfirmation = () => {
+    navigate("/");
+    setConfirmShowing(false);
+  };
+
+  if (isLoading || isProductLoading) {
+    return (
+      <p>
+        Please wait for API server to boot up. This process can take up to 1
+        minute so please sit tight.
+      </p>
+    );
+  }
 
   if (!products || !customers) {
     return null;
@@ -71,6 +97,10 @@ const Home = () => {
           />
         </Banner>
       </div>
+      <ConfirmationPopup
+        isOpen={isConfirmShowing}
+        closeModal={clearConfirmation}
+      />
     </Layout>
   );
 };
@@ -87,6 +117,8 @@ const Banner = styled.div`
 `;
 
 const BannerActions = styled.div`
+  background: white;
+
   width: calc(100% - 10px);
   display: inline-flex;
   justify-content: space-between;

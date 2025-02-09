@@ -93,8 +93,12 @@ const CartPopup = ({ isOpen, closePopup, ...props }: Props) => {
             <ItemTile key={index}>
               <img src={item.images[0]} />
               <div style={{ height: "100%" }}>
-                <p>{item.name}</p>
-                <p>${item.default_price.unit_amount / 100}</p>
+                <p style={{ color: MAIN_COLORS.orange }}>
+                  <b>{item.name}</b>
+                </p>
+                <p style={{ color: MAIN_COLORS.yellow }}>
+                  ${item.default_price.unit_amount / 100}
+                </p>
                 <p>Quantity: {item.count}</p>
               </div>
             </ItemTile>
@@ -118,7 +122,7 @@ const StyledContainer = styled.div<{ isOpen: boolean }>`
   width: 500px;
   height: 100%;
   position: fixed;
-  right: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  right: ${({ isOpen }) => (isOpen ? "0" : "-200%")};
   display: flex;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.3);
@@ -141,6 +145,7 @@ const CartContainer = styled.div`
 const ItemTile = styled.div`
   width: 100%;
   background: white;
+  color: black;
 
   border-bottom: 1px solid #f1ebe9;
 

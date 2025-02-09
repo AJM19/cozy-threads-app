@@ -24,6 +24,7 @@ type Props = {
 const Carousel = ({ index, itemsPerPage, items }: Props) => {
   const dispatch = useDispatch();
   const [showAdded, setShowAdded] = useState<Product | null>();
+  const [hovering, setHovering] = useState(Array.from(items, () => false));
 
   const addToCart = (product: Product) => {
     dispatch(cartActions.addItemToCart({ item: product }));
@@ -35,15 +36,26 @@ const Carousel = ({ index, itemsPerPage, items }: Props) => {
     setTimeout(() => setShowAdded(null), 1500);
   };
 
-  console.log("ITEMS: ", items);
-
   return (
     <CarouselContainer>
       <CarouselWrapper
         style={{ transform: `translateX(-${index * (100 / itemsPerPage)}%)` }}
       >
         {items.map((item, i) => (
-          <ProductTile key={i}>
+          <ProductTile
+            onClick={() => handleClick(item)}
+            onMouseLeave={() =>
+              setHovering((prev) =>
+                prev.map((val, index) => (index === i ? !val : val)),
+              )
+            }
+            onMouseEnter={() =>
+              setHovering((prev) =>
+                prev.map((val, index) => (index === i ? !val : val)),
+              )
+            }
+            key={i}
+          >
             <img src={item.images[0]} />
             <div className="info">
               <label className="title"> {item.name}</label>
@@ -58,6 +70,9 @@ const Carousel = ({ index, itemsPerPage, items }: Props) => {
             >
               {showAdded === item ? <p>Added!</p> : <p>Add to Cart</p>}
             </AddButton>
+            <DecriptionSlide isShowing={hovering[i]}>
+              <p>{item.description}</p>
+            </DecriptionSlide>
           </ProductTile>
         ))}
       </CarouselWrapper>
@@ -81,8 +96,10 @@ const CarouselWrapper = styled.div`
 `;
 
 const ProductTile = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   min-width: calc(25% - 20px);
   box-sizing: border-box;
@@ -139,4 +156,23 @@ const AddButton = styled.button<{ isAdded: boolean }>`
   p {
     color: ${({ isAdded }) => (isAdded ? "white" : "black")};
   }
+`;
+
+const DecriptionSlide = styled.div<{ isShowing: boolean }>`
+  position: absolute;
+  width: calc(100% - 10px);
+  height: ${({ isShowing }) => (isShowing ? "calc(100% - 90px)" : "0")};
+  background: white;
+
+  p {
+    color: ${MAIN_COLORS.orange};
+    font-weight: 600;
+    text-align: start;
+
+    height: ${({ isShowing }) => (isShowing ? "100%" : "0")};
+    overflow: clip;
+  }
+
+  animation: fadeIn 0.5s ease-in forwards;
+  transition: height 0.5s ease-in-out;
 `;
