@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Layout, { Title } from "./Layout";
+import Layout from "./Layout";
 import { useGetProdcutsQuery } from "./queries/stripeAPI";
 import Carousel from "./Carousel";
 import { useEffect, useState } from "react";
@@ -104,7 +104,7 @@ const Home = () => {
         </Banner>
       </div>
       <ConfirmationPopup
-        isOpen={isConfirmShowing}
+        $isOpen={isConfirmShowing}
         closeModal={clearConfirmation}
       />
     </Layout>
@@ -172,6 +172,11 @@ const Intro = styled.div`
   height: 200px;
   width: 100%;
 
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+  }
+
   img {
     object-fit: cover;
     object-position: center;
@@ -184,6 +189,10 @@ const Intro = styled.div`
     position: relative;
     padding: 10px 5px;
     background: ${MAIN_COLORS.orange};
+
+    @media (max-width: 900px) {
+      height: 50px;
+    }
 
     p {
       line-height: 100%;

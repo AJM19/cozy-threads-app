@@ -64,12 +64,12 @@ const Carousel = ({ index, itemsPerPage, items }: Props) => {
               </label>
             </div>
             <AddButton
-              isAdded={showAdded === item}
+              $isAdded={showAdded === item}
               onClick={() => handleClick(item)}
             >
               {showAdded === item ? <p>Added!</p> : <p>Add to Cart</p>}
             </AddButton>
-            <DecriptionSlide isShowing={hovering[i]}>
+            <DecriptionSlide $isShowing={hovering[i]}>
               <p>{item.description}</p>
             </DecriptionSlide>
           </ProductTile>
@@ -152,25 +152,25 @@ const ProductTile = styled.div`
   }
 `;
 
-const AddButton = styled.button<{ isAdded: boolean }>`
+const AddButton = styled.button<{ $isAdded: boolean }>`
   animation: fadeIn 0.5s ease-in forwards;
   transition:
     background-color 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 
-  background: ${({ isAdded }) => (isAdded ? "white" : MAIN_COLORS.orange)};
-  border: ${({ isAdded }) =>
-    isAdded ? `1px solid ${MAIN_COLORS.orange}` : "none"};
+  background: ${({ $isAdded }) => ($isAdded ? "white" : MAIN_COLORS.orange)};
+  border: ${({ $isAdded }) =>
+    $isAdded ? `1px solid ${MAIN_COLORS.orange}` : "none"};
 
   p {
-    color: ${({ isAdded }) => (isAdded ? MAIN_COLORS.orange : "white")};
+    color: ${({ $isAdded }) => ($isAdded ? MAIN_COLORS.orange : "white")};
   }
 `;
 
-const DecriptionSlide = styled.div<{ isShowing: boolean }>`
+const DecriptionSlide = styled.div<{ $isShowing: boolean }>`
   position: absolute;
   width: calc(100% - 10px);
-  height: ${({ isShowing }) => (isShowing ? "calc(100% - 90px)" : "0")};
+  height: ${({ $isShowing }) => ($isShowing ? "calc(100% - 90px)" : "0")};
   background: white;
 
   p {
@@ -178,7 +178,7 @@ const DecriptionSlide = styled.div<{ isShowing: boolean }>`
     font-weight: 600;
     text-align: center;
 
-    height: ${({ isShowing }) => (isShowing ? "100%" : "0")};
+    height: ${({ $isShowing }) => ($isShowing ? "100%" : "0")};
     overflow: clip;
   }
 

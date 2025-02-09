@@ -4,14 +4,14 @@ import styled from "styled-components";
 import { MAIN_COLORS } from "./colors";
 
 type Props = ComponentPropsWithoutRef<"div"> & {
-  isOpen: boolean;
+  $isOpen: boolean;
   width?: any;
   closeModal: () => void;
   height?: any;
 };
 
-const ConfirmationPopup = ({ isOpen, closeModal, ...props }: Props) => {
-  if (!isOpen) {
+const ConfirmationPopup = ({ $isOpen, closeModal, ...props }: Props) => {
+  if (!$isOpen) {
     return null;
   }
 

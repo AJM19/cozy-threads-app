@@ -14,11 +14,11 @@ import { Product } from "./Carousel";
 import { MAIN_COLORS } from "./colors";
 
 type Props = ComponentPropsWithoutRef<"div"> & {
-  isOpen: boolean;
+  $isOpen: boolean;
   closePopup: () => void;
 };
 
-const CartPopup = ({ isOpen, closePopup, ...props }: Props) => {
+const CartPopup = ({ $isOpen, closePopup, ...props }: Props) => {
   const rootDiv = document.getElementById("root");
   const popupRef = useRef<HTMLDivElement>(null);
 
@@ -54,9 +54,9 @@ const CartPopup = ({ isOpen, closePopup, ...props }: Props) => {
 
   useEffect(() => {
     if (rootDiv) {
-      rootDiv.style.pointerEvents = isOpen ? "none" : "";
+      rootDiv.style.pointerEvents = $isOpen ? "none" : "";
     }
-  }, [isOpen]);
+  }, [$isOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -74,7 +74,7 @@ const CartPopup = ({ isOpen, closePopup, ...props }: Props) => {
       }
     };
 
-    if (isOpen) {
+    if ($isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
       document.addEventListener("keydown", handleKeyDown);
     }
@@ -83,10 +83,10 @@ const CartPopup = ({ isOpen, closePopup, ...props }: Props) => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, closePopup]);
+  }, [$isOpen, closePopup]);
 
   return createPortal(
-    <StyledContainer ref={popupRef} isOpen={isOpen} {...props}>
+    <StyledContainer ref={popupRef} $isOpen={$isOpen} {...props}>
       <CartContainer>
         <div style={{ height: "100%", overflow: "hidden auto" }}>
           {formattedItems.map((item, index) => (
@@ -123,11 +123,11 @@ const CartPopup = ({ isOpen, closePopup, ...props }: Props) => {
   );
 };
 
-const StyledContainer = styled.div<{ isOpen: boolean }>`
+const StyledContainer = styled.div<{ $isOpen: boolean }>`
   width: 500px;
   height: 100%;
   position: fixed;
-  right: ${({ isOpen }) => (isOpen ? "0" : "-200%")};
+  right: ${({ $isOpen }) => ($isOpen ? "0" : "-200%")};
   display: flex;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.3);

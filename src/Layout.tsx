@@ -31,7 +31,7 @@ const Layout = ({ children }: Props) => {
       </Header>
       <div className="content">{children}</div>
       <CartPopup
-        isOpen={isCartShowing}
+        $isOpen={isCartShowing}
         closePopup={() => setCartShowing(false)}
       />
     </Container>
