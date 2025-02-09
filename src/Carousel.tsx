@@ -43,15 +43,14 @@ const Carousel = ({ index, itemsPerPage, items }: Props) => {
       >
         {items.map((item, i) => (
           <ProductTile
-            onClick={() => handleClick(item)}
             onMouseLeave={() =>
               setHovering((prev) =>
-                prev.map((val, index) => (index === i ? !val : val)),
+                prev.map((val, index) => (index === i ? false : val)),
               )
             }
             onMouseEnter={() =>
               setHovering((prev) =>
-                prev.map((val, index) => (index === i ? !val : val)),
+                prev.map((val, index) => (index === i ? true : val)),
               )
             }
             key={i}
@@ -100,6 +99,7 @@ const CarouselWrapper = styled.div`
 
   @media (max-width: 900px) {
     flex-direction: column;
+    gap: 10px;
   }
 `;
 
@@ -158,11 +158,12 @@ const AddButton = styled.button<{ isAdded: boolean }>`
     background-color 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 
-  background-color: ${({ isAdded }) =>
-    isAdded ? MAIN_COLORS.orange : "transparent"};
+  background: ${({ isAdded }) => (isAdded ? "white" : MAIN_COLORS.orange)};
+  border: ${({ isAdded }) =>
+    isAdded ? `1px solid ${MAIN_COLORS.orange}` : "none"};
 
   p {
-    color: ${({ isAdded }) => (isAdded ? "white" : "black")};
+    color: ${({ isAdded }) => (isAdded ? MAIN_COLORS.orange : "white")};
   }
 `;
 
@@ -175,7 +176,7 @@ const DecriptionSlide = styled.div<{ isShowing: boolean }>`
   p {
     color: ${MAIN_COLORS.orange};
     font-weight: 600;
-    text-align: start;
+    text-align: center;
 
     height: ${({ isShowing }) => (isShowing ? "100%" : "0")};
     overflow: clip;
@@ -183,4 +184,6 @@ const DecriptionSlide = styled.div<{ isShowing: boolean }>`
 
   animation: fadeIn 0.5s ease-in forwards;
   transition: height 0.5s ease-in-out;
+
+  opacity: 0.75;
 `;

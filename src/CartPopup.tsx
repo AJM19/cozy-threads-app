@@ -110,7 +110,12 @@ const CartPopup = ({ isOpen, closePopup, ...props }: Props) => {
             <p>Subtotal</p>
             <p>${total / 100}</p>
           </div>
-          <button onClick={() => navigate("/checkout")}>checkout</button>
+          <button
+            disabled={items.length < 1}
+            onClick={() => navigate("/checkout")}
+          >
+            checkout
+          </button>
         </PricingSection>
       </CartContainer>
     </StyledContainer>,
@@ -169,7 +174,6 @@ const ItemTile = styled.div`
 
 const PricingSection = styled.div`
   height: 100%;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -183,6 +187,11 @@ const PricingSection = styled.div`
     &:hover {
       background: white;
       color: ${MAIN_COLORS.orange};
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
     }
   }
 
