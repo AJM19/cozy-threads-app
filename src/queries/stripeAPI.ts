@@ -8,13 +8,7 @@ export const stripeAPI = createApi({
       "https://cozy-threads-stripe-api-production.up.railway.app/cozy-threads/",
   }),
   endpoints: (builder) => ({
-    getCustomers: builder.query<any, void>({
-      query: () => ({
-        url: `/customers`,
-        method: "GET",
-      }),
-    }),
-    getProdcuts: builder.query<any, void>({
+    getProdcuts: builder.query<Product[], void>({
       query: () => ({
         url: `/products`,
         method: "GET",
@@ -36,8 +30,4 @@ export const stripeAPI = createApi({
   }),
 });
 
-export const {
-  useGetCustomersQuery,
-  useGetProdcutsQuery,
-  useCreatePaymentIntentQuery,
-} = stripeAPI;
+export const { useGetProdcutsQuery, useCreatePaymentIntentQuery } = stripeAPI;
