@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Layout from "./Layout";
-import { useGetCustomersQuery, useGetProdcutsQuery } from "./queries/stripeAPI";
+import { useGetProdcutsQuery } from "./queries/stripeAPI";
 import Carousel from "./Carousel";
 import { useEffect, useState } from "react";
 import { MAIN_COLORS } from "./colors";
@@ -11,8 +11,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const query = useQuery();
   const navigate = useNavigate();
-  const { data: customers, isLoading } = useGetCustomersQuery();
-  const { data: products, isLoading: isProductLoading } = useGetProdcutsQuery();
+  const { data: products, isLoading } = useGetProdcutsQuery();
 
   const [index, setIndex] = useState(0);
   const [index2, setIndex2] = useState(0);
@@ -31,7 +30,7 @@ const Home = () => {
     setConfirmShowing(false);
   };
 
-  if (isLoading || isProductLoading) {
+  if (isLoading) {
     return (
       <p>
         Please wait for API server to boot up. This process can take up to 1
@@ -40,7 +39,7 @@ const Home = () => {
     );
   }
 
-  if (!products || !customers) {
+  if (!products) {
     return null;
   }
 
