@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, useState } from "react";
 import styled from "styled-components";
-import { MAIN_COLORS } from "./colors";
+import { MAIN_COLORS } from "../colors";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { cartSelectors } from "./slices/cart.slice";
+import { cartSelectors } from "../slices/cart.slice";
 import CartPopup from "./CartPopup";
-import { ANIMATIONS } from "./animation";
+import { ANIMATIONS } from "../animation";
 
 type Props = ComponentPropsWithoutRef<"div">;
 

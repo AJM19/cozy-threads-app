@@ -8,10 +8,10 @@ import {
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { cartSelectors } from "./slices/cart.slice";
 import { useSelector } from "react-redux";
 import { Product } from "./Carousel";
-import { MAIN_COLORS } from "./colors";
+import { cartSelectors } from "../slices/cart.slice";
+import { MAIN_COLORS } from "../colors";
 
 type Props = ComponentPropsWithoutRef<"div"> & {
   $isOpen: boolean;
@@ -171,6 +171,10 @@ const ItemTile = styled.div`
     width: 150px;
     object-fit: cover;
     object-position: top;
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 `;
 

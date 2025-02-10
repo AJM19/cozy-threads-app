@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { cartActions } from "./slices/cart.slice";
 import { useState } from "react";
-import { MAIN_COLORS } from "./colors";
-import { ANIMATIONS } from "./animation";
+import { cartActions } from "../slices/cart.slice";
+import { ANIMATIONS } from "../animation";
+import { MAIN_COLORS } from "../colors";
 
 export type Product = {
   id: string;

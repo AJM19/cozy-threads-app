@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import { MAIN_COLORS } from "./colors";
+import { MAIN_COLORS } from "../colors";
 
 type Props = ComponentPropsWithoutRef<"div"> & {
   $isOpen: boolean;

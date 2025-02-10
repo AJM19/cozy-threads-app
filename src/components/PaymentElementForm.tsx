@@ -5,7 +5,7 @@ import {
   PaymentElement,
 } from "@stripe/react-stripe-js";
 import styled from "styled-components";
-import { MAIN_COLORS } from "./colors";
+import { MAIN_COLORS } from "../colors";
 
 const PaymentElementForm = () => {
   const stripe = useStripe();
@@ -33,7 +33,7 @@ const PaymentElementForm = () => {
     <StyledForm onSubmit={handleSubmit}>
       <PaymentElement />
       <button type="submit" disabled={isProcessing || !stripe}>
-        {isProcessing ? "Processing..." : "Pay Now"}
+        {isProcessing ? "processing..." : "pay now"}
       </button>
     </StyledForm>
   );

@@ -1,13 +1,13 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { useCreatePaymentIntentQuery } from "./queries/stripeAPI";
-import PaymentElementForm from "./PaymentElementForm";
-import Layout from "./Layout";
 import { useSelector } from "react-redux";
-import { cartSelectors } from "./slices/cart.slice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import styled from "styled-components";
+import { cartSelectors } from "../slices/cart.slice";
+import { useCreatePaymentIntentQuery } from "../queries/stripeAPI";
+import Layout from "../components/Layout";
+import PaymentElementForm from "../components/PaymentElementForm";
 
 const Checkout = () => {
   const stripePromise = loadStripe(

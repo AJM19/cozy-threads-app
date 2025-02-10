@@ -1,13 +1,16 @@
 import styled from "styled-components";
-import Layout from "./Layout";
-import { useGetProdcutsQuery } from "./queries/stripeAPI";
-import Carousel from "./Carousel";
+
 import { useEffect, useState } from "react";
-import { MAIN_COLORS } from "./colors";
-import ConfirmationPopup from "./ConfirmationPopup";
-import useQuery from "./useQuery";
+
 import { useNavigate } from "react-router-dom";
-import { ANIMATIONS } from "./animation";
+import useQuery from "../hooks/useQuery";
+import { useGetProdcutsQuery } from "../queries/stripeAPI";
+import Layout from "../components/Layout";
+
+import { MAIN_COLORS } from "../colors";
+import { ANIMATIONS } from "../animation";
+import Carousel from "../components/Carousel";
+import ConfirmationPopup from "../components/ConfirmationPopup";
 
 const Home = () => {
   const query = useQuery();
@@ -167,11 +170,12 @@ const Intro = styled.div`
   display: grid;
   grid-template-columns: 3fr 2fr;
   gap: 5px;
+  margin: 0 10px;
 
   overflow: hidden;
 
-  height: 200px;
-  width: 100%;
+  height: 350px;
+  width: calc(100% - 20px);
 
   @media (max-width: 900px) {
     display: flex;

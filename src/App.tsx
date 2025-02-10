@@ -1,8 +1,9 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import Home from "./Home";
-import Checkout from "./Checkout";
+
 import "./App.css";
+import Home from "./pages/Home";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const location = useLocation();
