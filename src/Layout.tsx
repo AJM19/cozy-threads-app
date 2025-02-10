@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { cartSelectors } from "./slices/cart.slice";
 import CartPopup from "./CartPopup";
+import { ANIMATIONS } from "./animation";
 
 type Props = ComponentPropsWithoutRef<"div">;
 
@@ -63,6 +64,8 @@ const Header = styled.header`
   align-items: center;
   padding: 0 10px;
   border-bottom: 1px solid #f1ebe9;
+
+  ${ANIMATIONS.topDownReveal};
 `;
 
 const Icon = styled.img`

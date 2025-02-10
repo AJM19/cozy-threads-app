@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { cartActions } from "./slices/cart.slice";
 import { useState } from "react";
 import { MAIN_COLORS } from "./colors";
+import { ANIMATIONS } from "./animation";
 
 export type Product = {
   id: string;
@@ -115,10 +116,10 @@ const ProductTile = styled.div`
   text-align: center;
   border: 1px solid #ddd;
   margin: 0 10px;
-
   justify-content: space-between;
-
   height: 500px;
+
+  ${ANIMATIONS.fadeIn};
 
   img {
     height: 400px;

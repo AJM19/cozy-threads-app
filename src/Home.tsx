@@ -7,6 +7,7 @@ import { MAIN_COLORS } from "./colors";
 import ConfirmationPopup from "./ConfirmationPopup";
 import useQuery from "./useQuery";
 import { useNavigate } from "react-router-dom";
+import { ANIMATIONS } from "./animation";
 
 const Home = () => {
   const query = useQuery();
@@ -208,4 +209,6 @@ const Intro = styled.div`
       color: black;
     }
   }
+
+  ${ANIMATIONS.sideReveal};
 `;
