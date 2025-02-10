@@ -201,6 +201,8 @@ const PricingSection = styled.div`
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
+
+    color: black;
   }
 `;
 
