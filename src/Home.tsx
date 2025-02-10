@@ -40,7 +40,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div style={{ padding: "10px 0" }}>
+      <div style={{ padding: "10px 0", background: "white" }}>
         <Intro>
           <img src="./bonfire.jpg" />
           <div className="intro">

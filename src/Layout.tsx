@@ -45,6 +45,7 @@ const Container = styled.div`
   height: 100%;
   position: fixed;
   overflow: auto;
+  background: white;
 
   .content {
     padding: 10px;
