@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Product } from "../Carousel";
+import { Product } from "../components/Carousel";
 
 export const stripeAPI = createApi({
   reducerPath: "stripeAPI",
