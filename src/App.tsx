@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./Home";
 import Checkout from "./Checkout";
@@ -27,6 +27,7 @@ function App() {
               </PageWrapper>
             }
           />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>
     </div>
