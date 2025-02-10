@@ -103,7 +103,9 @@ const CartPopup = ({ $isOpen, closePopup, ...props }: Props) => {
               </div>
             </ItemTile>
           ))}
-          {formattedItems.length < 1 && <p>No items added yet.</p>}
+          {formattedItems.length < 1 && (
+            <p style={{ color: "black" }}>No items added yet.</p>
+          )}
         </div>
         <PricingSection>
           <div className="subtotal">
