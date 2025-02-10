@@ -97,6 +97,7 @@ const CarouselWrapper = styled.div`
   transition: transform 0.3s ease-in-out;
   width: 100%;
   height: 100%;
+  padding: 10px 0;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -114,7 +115,7 @@ const ProductTile = styled.div`
   box-sizing: border-box;
   padding: 5px;
   text-align: center;
-  border: 1px solid #ddd;
+  box-shadow: 3px 1px 6px 4px #94949454;
   margin: 0 10px;
   justify-content: space-between;
   height: 500px;
