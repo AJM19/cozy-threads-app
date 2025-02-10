@@ -137,15 +137,12 @@ const ProductTile = styled.div`
   }
 
   .price {
-    font-size: 10pt;
+    font-size: 12pt;
+    color: black;
   }
 
   .description {
     font-size: 8pt;
-  }
-
-  .price {
-    font-size: 12pt;
   }
 
   .info {
