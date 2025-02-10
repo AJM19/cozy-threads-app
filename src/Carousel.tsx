@@ -186,5 +186,5 @@ const DecriptionSlide = styled.div<{ $isShowing: boolean }>`
   animation: fadeIn 0.5s ease-in forwards;
   transition: height 0.5s ease-in-out;
 
-  opacity: 0.75;
+  opacity: 0.75 !important;
 `;
