@@ -41,7 +41,7 @@ const Checkout = () => {
     <Layout>
       <div style={{ width: "100%" }}>
         <Logo src="./logo.png" />
-        <p style={{ padding: "10px 20px", fontSize: "18pt" }}>
+        <p style={{ padding: "10px 20px", fontSize: "18pt", color: "black" }}>
           amount: <b>${amount}</b>
         </p>
         <Elements options={options} stripe={stripePromise}>
