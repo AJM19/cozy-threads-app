@@ -99,7 +99,7 @@ const CartPopup = ({ $isOpen, closePopup, ...props }: Props) => {
                 <p style={{ color: MAIN_COLORS.yellow }}>
                   ${item.default_price.unit_amount / 100}
                 </p>
-                <p>Quantity: {item.count}</p>
+                <p style={{ color: "black" }}>Quantity: {item.count}</p>
               </div>
             </ItemTile>
           ))}
